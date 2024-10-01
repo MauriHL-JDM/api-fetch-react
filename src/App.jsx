@@ -2,7 +2,7 @@ import "./App.css";
 import IpInfo from "./components/IpInformation";
 
 function App() {
-  const ip = "34.211.200.85";
+  const ip = "146.83.209.156";
 
   return (
     <div>
