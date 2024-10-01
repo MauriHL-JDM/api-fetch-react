@@ -1,15 +1,29 @@
+import React, { useState } from "react";
 import "./App.css";
 import IpInfo from "./components/IpInformation";
 
 function App() {
-  const ip = "146.83.209.156";
+  const [ipAddress, setIpAddress] = useState("");
+
+  function consult(event) {
+    event.preventDefault(); // Evita que la página se recargue
+    const formData = new FormData(event.target);
+    const ip = formData.get("ip");
+    setIpAddress(ip);
+  }
 
   return (
     <div>
-      <h1>Dirección IP</h1>
-      <h3>Hora del dox</h3>
-      <h4>IP ingresada: {ip}</h4>
-      <IpInfo ip={ip} />
+      <form onSubmit={consult}>
+        <h1>Dirección IP</h1>
+        <label>
+          <h4>
+            Ingrese una IP: <input type="text" name="ip" />
+          </h4>
+          <button type="submit">Consultar</button>
+        </label>
+      </form>
+      <IpInfo ip={ipAddress} />
     </div>
   );
 }

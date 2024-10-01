@@ -53,7 +53,12 @@ const IpInfo = ({ ip }) => {
     );
   }
   if (status === "error") {
-    return <>{data}</>;
+    return (
+      <>
+        <br />
+        {data}
+      </>
+    );
   }
 };
 
